@@ -19,14 +19,6 @@ if [[ $BASH_SOURCE = */* ]]; then
   cd -- "${BASH_SOURCE%/*}/" || exit
 fi
 
-echo "Commit any changes"
-git add your-scratch-extension
-git add dependencies
-git commit -m "Update"
-git push origin master
-
-echo "Building the Scratch fork"
-./2-build.sh
 
 echo "Preparing a gh-pages branch"
 DEVBRANCH=$(git rev-parse --abbrev-ref HEAD)
@@ -38,9 +30,9 @@ else
 fi
 
 echo "Preparing a publish folder"
-if [ -d "scratch" ]
+if [ -d "scratch-gui" ]
 then
-  rm -rf ./scratch/*
+  rm -rf ./scratch-gui/*
 else
   mkdir scratch
 fi
