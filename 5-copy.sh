@@ -30,20 +30,13 @@ else
 fi
 
 echo "Preparing a publish folder"
-if [ -d "scratch-gui" ]
+if [ -d "scratch-vm1" ]
 then
-  rm -rf ./scratch-gui/*
+  rm -rf ./scratch-vm1/*
 else
-  mkdir scratch
+  mkdir scratch-vm1
 fi
 
 
 echo "Publishing the Scratch fork"
-cp -rf $SCRATCH_SRC_HOME/scratch-gui/build/* ./scratch/.
-
-git add scratch
-git commit -m "Update"
-git push origin gh-pages
-
-echo "Returning to dev branch"
-git checkout $DEVBRANCH
+cp -rf $SCRATCH_SRC_HOME/scratch-vm/* ./scratch-vm1/.
